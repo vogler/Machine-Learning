@@ -24,8 +24,8 @@
 \begin{document}
 \maketitle
 \section{Problem 1}
-\begin{align}
 \textit{T .. Terrorist, S .. Scan positive}\\
+\begin{align}
 P(S | T) = P(\neg{S} | \neg{T}) = 0.95\\
 P(T) = \frac{1}{100} = 0.01\\
 P(S) = P(S | T) * P(T) + P(S | \neg{T}) * P(\neg{T}) = 0.95 * 0.01 + 0.05 * 0.99 = 0.059\\
@@ -33,16 +33,18 @@ P(T | S) = \frac{P(S | T) * P(T)}{P(S)} = \frac{ 0.95 * 0.01}{0.059} = 0.1610169
 \end{align}
 
 \section{Problem 2}
-
-
-
-Polynomial long division by $(\lambda - 2)$:
+\textit{$ B_1/B_2 $.. Ball 1/2 in box is red, $ D_1/D_2/D_3 $.. Drawn ball 1/2/3 is red}
 \begin{align}
-(\lambda - 2)^3 - (\lambda - 2) - (\lambda -2) : (\lambda - 2) &= (\lambda - 2)^2 - 1 - 1\\
-&= \lambda^2 - 4\lambda + 2\\
-&\stackrel{!}{=} 0\\
-\Rightarrow \lambda_{2/3} &= 2 \pm \sqrt{\frac{16}{4} - 2}\\
-\underline{\lambda_{2/3}} &= 2 \pm \sqrt{2}
+P(B_1) = P(B_2) = 0.5\\
+P(B_1, B_2) = P(B_1) * P(B_2) = 0.25\\
+P(B_1, B_2 | D_1, D_2, D_3) = \frac{P(D_1, D_2, D_3 | B_1, B_2) * P(B_1, B_2)}{P(D_1, D_2, D_3)}
+= \frac{1 * 0.25}{P(D_1, D_2, D_3)}\\
+P(D_1, D_2, D_3) = P(D_1, D_2, D_3 | B_1, B2) * P(B_1, B_2)\\
+ + P(D_1, D_2, D_3 | \neg{B_1}, B2) * P(\neg{B_1}, B_2)\\
+ + P(D_1, D_2, D_3 | B_1, \neg{B2}) * P(B_1, \neg{B_2})\\
+ + P(D_1, D_2, D_3 | \neg{B_1}, \neg{B2}) * P(\neg{B_1}, \neg{B_2})\\
+ = 0.25 * (1 + 2 * 0.5^3 + 0) = 0.3125\\
+ P(B_1, B_2 | D_1, D_2, D_3) = \frac{0.25}{0.3125} = 0.8
 \end{align}
 
 \begin{align}
