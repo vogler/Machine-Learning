@@ -28,246 +28,96 @@
 \begin{align}
 P(S | T) = P(\neg{S} | \neg{T}) = 0.95\\
 P(T) = \frac{1}{100} = 0.01\\
-P(S) = P(S | T) * P(T) + P(S | \neg{T}) * P(\neg{T}) = 0.95 * 0.01 + 0.05 * 0.99 = 0.059\\
-P(T | S) = \frac{P(S | T) * P(T)}{P(S)} = \frac{ 0.95 * 0.01}{0.059} = 0.1610169492
+P(S) = P(S | T) \cdot P(T) + P(S | \neg{T}) \cdot P(\neg{T}) = 0.95 \cdot 0.01 + 0.05 \cdot 0.99 = 0.059\\
+P(T | S) = \frac{P(S | T) \cdot P(T)}{P(S)} = \frac{ 0.95 \cdot 0.01}{0.059} = 0.1610169492
 \end{align}
+\color{red}
+$P(T) = \frac{1}{99}$ bzw. $P(\neg T) = \frac{98}{99}$ weil ich weiß, dass ich kein terrorist bin?\\
+\color{black}
 
 \section{Problem 2}
 \textit{$ B_1/B_2 $.. Ball 1/2 in box is red, $ D_1/D_2/D_3 $.. Drawn ball 1/2/3 is red}
 \begin{align}
 P(B_1) = P(B_2) = 0.5\\
-P(B_1, B_2) = P(B_1) * P(B_2) = 0.25\\
-P(B_1, B_2 | D_1, D_2, D_3) = \frac{P(D_1, D_2, D_3 | B_1, B_2) * P(B_1, B_2)}{P(D_1, D_2, D_3)}
-= \frac{1 * 0.25}{P(D_1, D_2, D_3)}\\
-P(D_1, D_2, D_3) = P(D_1, D_2, D_3 | B_1, B2) * P(B_1, B_2)\\
- + P(D_1, D_2, D_3 | \neg{B_1}, B2) * P(\neg{B_1}, B_2)\\
- + P(D_1, D_2, D_3 | B_1, \neg{B2}) * P(B_1, \neg{B_2})\\
- + P(D_1, D_2, D_3 | \neg{B_1}, \neg{B2}) * P(\neg{B_1}, \neg{B_2})\\
- = 0.25 * (1 + 2 * 0.5^3 + 0) = 0.3125\\
+P(B_1, B_2) = P(B_1) \cdot P(B_2) = 0.25\\
+P(B_1, B_2 | D_1, D_2, D_3) = \frac{P(D_1, D_2, D_3 | B_1, B_2) \cdot P(B_1, B_2)}{P(D_1, D_2, D_3)}
+= \frac{1 \cdot 0.25}{P(D_1, D_2, D_3)}\\
+P(D_1, D_2, D_3) = P(D_1, D_2, D_3 | B_1, B2) \cdot P(B_1, B_2)\\
+ + P(D_1, D_2, D_3 | \neg{B_1}, B2) \cdot P(\neg{B_1}, B_2)\\
+ + P(D_1, D_2, D_3 | B_1, \neg{B2}) \cdot P(B_1, \neg{B_2})\\
+ + P(D_1, D_2, D_3 | \neg{B_1}, \neg{B2}) \cdot P(\neg{B_1}, \neg{B_2})\\
+ = 0.25 \cdot (1 + 2 \cdot 0.5^3 + 0) = 0.3125\\
  P(B_1, B_2 | D_1, D_2, D_3) = \frac{0.25}{0.3125} = 0.8
 \end{align}
 
+\color{red}
+$X := \#$(red balls in box), $Y := \#$(red draws)
 \begin{align}
-Ax &= \lambda x\\
-Ax - \lambda x &= 0\\
-(A-\lambda)x &= 0
+P(X=2 ~|~ Y=3) &= \frac{P(Y=3 ~|~ X=2)\cdot P(X=2)}{P(Y=3)}\\
+&= \frac{1 \cdot \frac{1}{4}}{\sum \limits_{i=0}^2 P(Y=3 ~|~ X=i)\cdot P(X=i)}\\
+&= \frac{\frac{1}{4}}{0 + \frac{1}{2}^3\cdot \frac{1}{2} + \frac{1}{4}} = \frac{4}{5}
 \end{align}
-
-for $\lambda_1 = 2$:
-\begin{align}
-\Rightarrow
-\begin{pmatrix}[ccc|c]
-0 & 1 & 0 & 0\\
-1 & 0 & 1 & 0\\
-0 & 1 & 0 & 0\\
-\end{pmatrix}
-\Rightarrow \dots \Rightarrow E_1 =
-\underline{
-\langle
-\begin{pmatrix}
-1\\0\\-1
-\end{pmatrix}
-\rangle
-}
-\end{align}
-
-for $\lambda_2 = 2+\sqrt{2}$:
-\begin{align}
-\Rightarrow
-\begin{pmatrix}[ccc|c]
-\sqrt{2} & 1 & 0 & 0\\
-1 & \sqrt{2} & 1 & 0\\
-0 & 1 & \sqrt{2} & 0\\
-\end{pmatrix}
-\Rightarrow \dots \Rightarrow E_2 =
-\underline{
-\langle
-\begin{pmatrix}
-1\\ -\sqrt{2} \\1
-\end{pmatrix}
-}
-\rangle
-\end{align}
-
-for $\lambda_3 = 2-\sqrt{2}$:
-\begin{align}
-\Rightarrow
-\begin{pmatrix}[ccc|c]
--\sqrt{2} & 1 & 0 & 0\\
-1 & -\sqrt{2} & 1 & 0\\
-0 & 1 & -\sqrt{2} & 0\\
-\end{pmatrix}
-\Rightarrow \dots \Rightarrow E_3 =
-\underline{
-\langle
-\begin{pmatrix}
-1\\ \sqrt{2} \\1
-\end{pmatrix}
-}
-\rangle
-\end{align}
-
-\subsection{Octave code}
-\begin{lstlisting} 
-	%start
-	A = [2 -1 0; -1 2 -1; 0 -1 2]
-	%[v,d] = eig(A)
-	e = roots(poly(A))
-	e(1) % eigenvalue 1
-	e(2) % eigenvalue 2
-	e(3) % eigenvalue 3
-	v1 = null((eye(3)*e(1))-A) % eigenvector 1
-	v2 = null((eye(3)*e(2))-A) % eigenvector 2
-	v3 = null((eye(3)*e(3))-A) % eigenvector 3
-\end{lstlisting}
-
-\section{Problem 2.}
-
-
-\begin{align}
-B &\in \mathbb{R}^{n\times n}\\
-U &= \begin{pmatrix}
-| &| &|\\
-x_1 &\dots &x_n\\
-| &| &|\\
-\end{pmatrix}\\
-D &= \begin{pmatrix}
-\lambda_1 & &\\
-& \ddots &\\
-& & \lambda_n\\
-\end{pmatrix}\\
-\end{align}
-
-\begin{align}
-B &= UDU^{-1}\\
-BU &= UD\\
-\begin{pmatrix}
-$---$ &b_1^{T} &$---$\\
-$---$ &\dots &$---$\\
-$---$ &b_n^{T} &$---$
-\end{pmatrix}
-\begin{pmatrix}
-| &| &|\\
-x_1 &\dots &x_n\\
-| &| &|\\
-\end{pmatrix}
-&=\begin{pmatrix}
-| &| &|\\
-x_1 &\dots &x_n\\
-| &| &|\\
-\end{pmatrix}
-\begin{pmatrix}
-\lambda_1 & &\\
-& \ddots &\\
-& & \lambda_n\\
-\end{pmatrix}\\
-\begin{pmatrix}
-b_1^{T}x_1 &\dots &b_n^{T}x_n\\
-\vdots &\dots &\vdots\\
-b_1^{T}x_1 &\dots &b_n^{T}x_n
-\end{pmatrix}
-&= \begin{pmatrix}
-| &| &|\\
-x_1\lambda_1 &\dots &x_n\lambda_n\\
-| &| &|\\
-\end{pmatrix}
-\end{align}
-
-as $\forall i: Bx_i = \lambda x_1 = x_i\lambda \;\;\;\Rightarrow\;\;\;$ \underline{equation (22) is valid}~~~~~$\Box$
+\color{black}
 
 \section{Problem 3.}
 
-\subsection{B has real eigenvalues}
 \begin{align}
-Bx &= \lambda x\\
-\overline{x}^{T}Bx &= \overline{x}^{T}\lambda x
-\end{align}
-\begin{align}
-Bx &= \lambda x\\
-\overline{Bx} &= \overline{\lambda x}\\
-B\overline{x} &= \overline{\lambda} \overline{x}\\
-(B\overline{x})^{T} &= (\overline{\lambda} \overline{x})^{T}\\
-\overline{x}^{T} B^{T} &= \overline{x}^{T} \overline{\lambda}^{T}\\
-\overline{x}^{T} B &= \overline{x}^{T} \overline{\lambda}\\
-\overline{x}^{T} B x &= \overline{x}^{T} \overline{\lambda} x
-\end{align}
-
-\begin{align}
-(25) + (32) ~~\Rightarrow~~ \overline{x}^{T} \overline{\lambda} x &= \overline{x}^{T}\lambda x\\
-\overline{\lambda} &= \lambda~~~~~~~~~~~~~~~~~~~~~~~~~\Box
-\end{align}
-
-
-
-\subsection{eigenvecotrs are orhtogonal if eigenvalues pairwise distinct}
-
-
-with $\lambda \neq \mu: Bx_1 = \lambda x_1$ and $Bx_2 = \mu x_2$
-\begin{align}
-Bx_1 &= \lambda x_1\\
-x_2^{T} Bx_1 &= x_2^{T}\lambda x_1
-\end{align}
-
-\begin{align}
-Bx_2 &= \mu x_2\\
-x_2^{T}B &= x_2^{T} \mu\\
-x_2^{T}B x_1 &= x_2^{T} \mu x_1
-\end{align}
-
-\begin{align}
-(36)+(39) \Rightarrow x_2^{T} \lambda x_1 &= x_2^{T} \mu x_1\\
-\lambda x_2^{T} x_1 &= \mu x_2^{T} x_1\\
-\text{as}~\lambda \neq \mu \Rightarrow x_2^{T} x1 &= 0~~~~~~~~~~~~~~~~~~~~~~\Box
+E[X] &= \int_{-\infty}^{\infty} x \cdot p(x) dx\\
+&= \int_{-\infty}^{0} x \cdot p(x) dx + \int_{0}^{1} x \cdot p(x) dx + \int_{1}^{\infty} x \cdot p(x) dx\\
+&= 0 + [\frac{1}{2}x^2]_{0}^1 + 0\\
+&= \frac{1}{2}
 \end{align}
 
 \section{Problem 4.}
+\color{red}?\color{black}
 
-\begin{itemize}
-\item $B$ is real and symmetric $\land$ $B$ has n distinct eigenvalues $\lambda_1,\hdots,\lambda_2$
-\item $\Rightarrow$ the $n$ eigenvectors are orthogonal (3.2)
-\item $\Rightarrow$ the $n$ eigenvectors are linear independent
-\item $\Rightarrow$ $B$ is similar to a diagonal matrix sharing determinant and trace
-\item $\Rightarrow$ $D_B = \begin{pmatrix}
-\lambda_1 & &\\
-& \ddots &\\
-& & \lambda_n\\
-\end{pmatrix}$ with:
-\begin{itemize}
-\item $det(D_B) = \prod \limits_{i=1}^{n} \lambda_i$
-\item $tr(D_B) = \sum \limits_{i=1}^n \lambda_i$
-\end{itemize}
-\end{itemize}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$\Box$
 
 \section{Problem 5.}
 
-\subsection{}
 \begin{align}
-h(x_0) = \omega_0 + \omega^{T} x_0 &= 0\\
-\omega^{T} x_0 &= -\omega_0
+c \cdot P(X > c) &\leq c \cdot \sum \limits_{x\in \Omega_X :~x>c} x\cdot P(X=x)\\
+&\leq \sum \limits_{x\in \Omega_X :~x>c} x\cdot P(X=x)\\
+&\leq \sum \limits_{x\in \Omega_X} x\cdot P(X=x)\\
+&= E[X]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\Box
 \end{align}
 
-\subsection{}
+$X := \#heads$ with $X \sim Bin(n,\frac{1}{2}) \Rightarrow E[X] = \frac{1}{2}n$
 \begin{align}
-\omega^{T}x_1 = -\omega_0 &= \omega^{T} x_2\\
-\Rightarrow \omega^{T} x_1 - \omega^{T} x_2 &= 0\\
-\omega^{T}(x_1-x_2) &= 0
+P(X>\frac{3}{4}n) &\leq \frac{\frac{1}{2}n}{\frac{3}{4}n}\\
+&= \frac{2}{3}
 \end{align}
 
-\subsection{}
+\section{Problem 6.}
 \begin{align}
-h(x) \cdot \hat{\omega} &= 0\\
-(\omega_0 + \omega^{T}x)(\frac{\omega}{||\omega||}) &= 0\\
-(\omega_0 - \omega_0) (\frac{\omega}{||\omega||}) &= 0\\
-0 &= 0~~~~~~~~~~~~~~~~\Box
+P(|X-E[X]| > a) &= P((X-E[X])^2 > a^2)\\
+&\leq \frac{E[(X-E[X])^2]}{a^2}\\
+&= \frac{Var[X]}{a^2}~~~~~~~~~~~~~~~~~~~~~~~\Box
 \end{align}
 
-\subsection{}
+$X := \#heads$ with $X \sim Bin(n,\frac{1}{2}) \Rightarrow Var[X] = n\cdot p \cdot q = \frac{1}{4}n$ and $E[X] = \frac{1}{2}n$
 \begin{align}
-\hat{\omega}^T(x-x_0) &= (\frac{\omega}{||\omega||})^T(x-x_0)\\
-&= \frac{1}{||\omega||} \omega^T (x-x_0)\\
-&= (\omega^T x - \omega^T x_0) \frac{1}{||\omega||}\\
-&= (\omega^T x - (-\omega_0)) \frac{1}{||\omega||}\\
-&= (\omega^T x + \omega_0) \frac{1}{||\omega||}~~~~~\Box
+P(|X-\frac{1}{2}n| > \frac{3}{4}n - \frac{1}{2}n) &\leq \frac{\frac{1}{4}n}{\frac{1}{16}n^2}\\
+&= \frac{4}{n}
 \end{align}
+
+\section{Problem 7.}
+$n=1$:
+\begin{align}
+f(\lambda_1x_1) \leq \lambda_1f(x_1)
+\end{align}
+$n=2$:
+\begin{align}
+f(\lambda_1x_1 + \lambda_2x_2) &= f(\lambda_1x_1 + (1-\lambda_1)x_2)\\
+&= \lambda_1f(x_1) + (1-\lambda_1)f(x_2) ~~~~~~\text{(def. of convex function)}\\
+&= \lambda_1f(x_1) + \lambda_2f(x_2)
+\end{align}
+$n=n+1$:
+\begin{align}
+f(\lambda_1x_1 + \hdots + \lambda_{n+1}x_{n+1}) &= f((1-\lambda_{n+1}) \sum \limits_{i=1}^{n}\frac{\lambda_i x_i}{1-\lambda_{n+1}} + \lambda_{n+1}x_{n+1})\\
+&\leq \lambda_{n+1}f(x_{n+1}) + (1-\lambda_{n+1}) f\left(\sum \limits_{i=1}^{n}\frac{\lambda_i}{1-\lambda_{n+1}} x_i\right)\\
+\text{with} ~~\sum \limits_{i=1}^{n}\frac{\lambda_i}{1-\lambda_{n+1}} = 1:\\
+&\overset{I.B.}\leq \sum \limits_{i=1}^{n+1} \lambda_i f(x_i)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\Box
+\end{align}
+
+
 \end{document}
