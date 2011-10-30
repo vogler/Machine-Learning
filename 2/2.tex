@@ -69,8 +69,15 @@ E[X] &= \int_{-\infty}^{\infty} x \cdot p(x) dx\\
 \end{align}
 
 \section{Problem 4.}
-\color{red}?\color{black}
-
+\begin{align}
+E_y[E_X[X|Y]] &=  \int_{-\infty}^{\infty}p(y) \cdot E_X[X|Y]~dy\\
+&= \int_{-\infty}^{\infty}p(y) \cdot \left( \int_{-\infty}^{\infty}x\cdot p(x|y)~dx \right)~dy\\
+&= \int_{-\infty}^{\infty}p(y) \cdot \left( \int_{-\infty}^{\infty}x\cdot \frac{p(x,y)}{p(y)}~dx \right)~dy\\
+&= \int_{-\infty}^{\infty}\left( \int_{-\infty}^{\infty}x\cdot p(x,y)~dx \right)~dy\\
+&= \int_{-\infty}^{\infty}x\cdot \left( \int_{-\infty}^{\infty}p(x,y)~dy \right)~dx\\
+&= \int_{-\infty}^{\infty} x \cdot p(x)~dx\\
+&= E[X]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\Box
+\end{align}
 
 \section{Problem 5.}
 
