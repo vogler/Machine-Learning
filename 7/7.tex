@@ -1,0 +1,78 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[latin9]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Simon Grötzinger, MatNr.: 3600830\\Ralf Vogler, MatNr.: 3602420}
+\title{Machine Learning Worksheet 7}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\usepackage{color} 
+    \usepackage{listings} 
+    \lstset{ 
+       language=Octave, 
+       morecomment = [l][\itshape\color{blue}]{\%} 
+    }
+
+\begin{document}
+\maketitle
+\section{Problem 1 - (strictly) convex}
+An interval of a function is called convex if its value is always less or equal than the value of the line between any two points on its graph.
+It is called strictly convex if its value is always less.
+
+For any two points $x_{1}$ and $x_{2}$ and any $t \in [0,1]$:
+\paragraph*{Convex function}
+\begin{align}
+f(t x_{1} + (1-t) x_{2}) \leq t f(x_{1}) + (1-t) f(x_{2}).
+\end{align}
+Alternatively: $f''(x) \geq 0 \Leftrightarrow $ convex
+\paragraph*{Strictly convex function}
+\begin{align}
+f(t x_{1} + (1-t) x_{2}) < t f(x_{1}) + (1-t) f(x_{2}).
+\end{align}
+Alternatively: $f''(x) > 0 \Rightarrow $ strictly convex
+
+
+\section{Problem 2 - extrema}
+Convex functions: a local minimum is also a global minimum.\\
+A strictly convex function has at most one local minimum, which is also a global minimum.
+
+
+\section{Problem 3 - examples}
+Strictly convex: $x^{4}$\\
+Convex but not strictly convex: $|x|$\\
+\includegraphics[width=\textwidth]{wolframalpha-20111221072253038.png}
+
+
+\section{Problem 5 - example}
+\includegraphics[width=\textwidth]{plot.png}
+The margin is $\sqrt{2}$. The samples (1,1), (2,2) and (1,3) are support vectors.
+b is 3. \textbf{w} is $\frac{2}{\sqrt{2}}$.
+
+
+\section{Problem 7 - linear separator}
+The data can not be linearly separated because the convex hulls of the two sets overlap (-1.5 would be a linear separator if 3 was not in the set for label +1).
+
+\section{Problem 8 - feature map}
+\textbf{Label +1:} (-3, 9), (-2, 4), (3, 9)\\
+\textbf{Label -1:} (-1, 1), (0, 0), (1, 1)
+
+Yes, it is now separable. See plot:\\
+\includegraphics[width=\textwidth]{plot2.png}
+
+
+\section{Problem 9 - feature map}
+\includegraphics[width=\textwidth]{plot3.png}
+Decision boundary in the original feature space:\\
+\includegraphics[width=\textwidth]{plot4.png}
+Yes, it is possible. Adding points outside of the margin doesn't change the hyperplane.
+\end{document}

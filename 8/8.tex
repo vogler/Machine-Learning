@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[latin9]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Simon Grötzinger, MatNr.: 3600830\\André Freitag, MatNr.: 3601865\\Ralf Vogler, MatNr.: 3602420}
+\title{Machine Learning Worksheet 8}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\usepackage{color} 
+    \usepackage{listings} 
+    \lstset{ 
+       language=Octave, 
+       morecomment = [l][\itshape\color{blue}]{\%} 
+    }
+
+\usepackage{cancel}
+
+\begin{document}
+\maketitle
+The three of us solve all problems on our own, we just share the "texing" since it is very time expensive.
+
+\section*{Problem 1}
+\color{red}todo\color{black}
+
+\section*{Problem 2}
+
+\begin{align}
+\sigma'(x) &= \frac{e^{-x}}{(1+e^{-x})^2}\\
+&= \frac{1}{1+e^{-x}} \frac{1+e^{-x}-1}{1+e^{-x}}\\
+&= \frac{1}{1+e^{-x}} \left( 1 - \frac{1}{1+e^{-x}} \right)\\
+&= \sigma(x) (1 - \sigma(x))
+\end{align}
+
+\begin{align}
+tanh'(x) &= \frac{(e^x + e^{-x})^2 - (e^x - e^{-x})^2}{(e^x + e^{-x})^2}\\
+&= 1 - tanh(x)^2\\
+&= (1 - tanh(x))(1 + tanh(x))
+\end{align}
+
+
+\section*{Problem 3}
+\begin{align}
+ln \prod \mathcal{N}(t_k|z(x_k,w),\beta^{-1}\mathit{I}) &= ln \prod \frac{1}{\mathit{I}\sqrt{2\pi\beta^{-1}}}\exp{\left(-\frac{1}{2}\left(\frac{t_k-z(x_k,w)}{\beta^{-1}}\right)^2\right)}\\
+&= const \underbrace{- \sum \frac{\beta^2}{2}(t_k-z(x_k,w))^2}_{E(w)}
+\end{align}
+maximising $E(w)$ equals minimising $-E(w)$~~~~~~$\Box$
+
+\section*{Problem 4}
+\subsection*{4.1}
+\begin{align}
+E(w) &= \sum \frac{1}{2} \Sigma^{-2} (t_n-z(x_n,w))^2
+\end{align}
+
+\subsection*{4.2}
+\begin{align}
+E(\Sigma,w) &= \sum \sqrt{2\pi}\sqrt{\Sigma} + \frac{1}{2\Sigma}(t_n - z(x_n,w))^2\\
+\frac{d E(\Sigma,w)}{d\Sigma} &= \frac{\sqrt{2\pi}}{2\sqrt{\Sigma}} - \frac{1}{2\Sigma^2}(t_n - z(x_n,w))^2 &\stackrel{!}{=} 0\\
+\frac{\Sigma^2}{\sqrt{\Sigma}} &= \frac{1}{\sqrt{2\pi}}(t_n - z(x_n,w))^2\\
+\Sigma &= \sqrt[3]{\frac{1}{\sqrt{2\pi}}(t_n - z(x_n,w))^4}
+\end{align}
+
+\section*{Problem 5}
+$p(t|x,w) = z(x,w)^y (1-z(x,w))^{1-y}$
+\begin{align}
+ln \prod p(t_k|x,w) &= \sum ln \left( z_k(x,w)^{y_k} (1-z_k(x,w))^{1-y_k} \right)\\
+&= \sum y_k ln(z_k(x,w)) + (1-y_k)ln(1-z_k(x,w))\\
+\end{align}
+maximising the above equation equals maximising the following (cross-entropy error function):
+\begin{align}
+- \sum y_k ln(z_k(x,w)) + (1-y_k)ln(1-z_k(x,w))
+\end{align}
+
+\section*{Problem 6}
+we substitute $z_n$ by $\sigma(a_n)$ (logistic sigmoid function) and use the formula prooved in Problem 2.
+\begin{align}
+E(w) &= - \sum \{t_n ln (\sigma(a_n)) + (1-t_n)ln(1-\sigma(a_n))\\
+\frac{dE}{da_k} &= -\frac{t_n}{\sigma(a_n)}\sigma(a_n)(1-\sigma(a_n)) - \frac{1-t_n}{1-\sigma(a_n)}(-1)\sigma(a_n)(1-\sigma(a_n))\\
+&= -t_n (1-\sigma(a_n)) + (1-t_n)\sigma(a_n)\\
+&= -t_n + \sigma(a_n)\\
+&= z_n - t_n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\Box
+\end{align}
+
+\section*{Problem 7}
+\color{red}todo\color{black}
+
+\section*{Problem 8}
+\color{red}todo\color{black}
+
+
+\end{document}

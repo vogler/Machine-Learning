@@ -1,0 +1,15 @@
+hmm ist ehrlichgesagt schwierig zusammenzufassen ^^ es waren insgesamt 40 Aufgaben (es gab insgesamt 100 Punkte zu holen) unterteilt in effektiv 13 Bereiche:
+LinAlg
+Schätzer
+Linear Regression
+Classification
+Latent Variable
+Neural Networks
+Optimization
+...
+okay alle fallen mir nicht mehr ein ^^ war aber echt quer durch und war teilweise ziemlich trickreich.
+Für die meisten Aufgaben gabs nur so 2 Punkte, von denen waren aber auch schon einige recht schwierig. Die Aufgaben mit mehr als 3 Punkten hab ich z.B. zum größten Teil gar nicht gelöst.
+Es war aber auch Überhang dabei, wieviel wurde aber nicht gesagt.
+Naja, ansich von der Zeit her auch okay, sie haben um 1/2h verlängert aber das hat eigentlich nix gebracht bei der ein oder anderen Aufgabe fehlte einfach die Idee bzw. war nicht so klar was gemeint war....
+
+mal sehen, war jedenfalls schon fair aber nicht so einfach wie die Midterm.
